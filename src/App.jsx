@@ -287,7 +287,7 @@ function App() {
               <p>Utilisez notre outil d'estimation interactif pour obtenir une idée du coût de vos travaux d'aérogommage. Simple, rapide et sans engagement.</p>
             </div>
             <div className="estimator-cta-action">
-              <a href="/estimateur" className="btn btn-primary btn-large">
+              <a href="/estimateur" className="btn btn-secondary btn-large">
                 <i className="fas fa-calculator"></i> Accéder à l'estimateur
               </a>
             </div>
