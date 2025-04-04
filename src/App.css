@@ -1,0 +1,323 @@
+#root {
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+}
+
+body {
+  background-color: #faf7f2;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+/* Navbar styles */
+.navbar {
+  background-color: #4B4A32; /* Kaki-marron foncé style treillis militaire */
+  color: white;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  padding: 0;
+  height: 51px;
+  display: flex;
+  align-items: center;
+}
+
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-links {
+  display: flex;
+  gap: 30px;
+}
+
+.nav-link {
+  font-size: 16px;
+  transition: opacity 0.3s ease;
+  color: white;
+}
+
+.nav-link:hover {
+  opacity: 0.8;
+}
+
+.nav-cta .btn {
+  background-color: #e8cfa2;
+  color: #000;
+  font-weight: bold;
+  padding: 8px 15px;
+  text-transform: uppercase;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+/* Hero section */
+.hero-section {
+  height: 500px;
+  width: 100%;
+  background-image: url('./assets/Hero.png');
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  margin-top: 51px;
+  padding-top: 0;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.15);
+}
+
+/* Services section */
+.services-section {
+  padding: 60px 0 50px;
+  text-align: left;
+  background-color: #f5efe3;
+}
+
+.services-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.services-text {
+  max-width: 60%;
+}
+
+.section-title {
+  color: #3c4a3a;
+  font-size: 38px;
+  font-weight: 700;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.services-description {
+  font-size: 20px;
+  margin-bottom: 0;
+  color: #333;
+  line-height: 1.4;
+  font-weight: 400;
+}
+
+.services-cta {
+  display: flex;
+  align-items: center;
+  margin-top: 0;
+}
+
+.btn-large {
+  padding: 15px 30px;
+  font-size: 18px;
+  font-weight: 600;
+  text-transform: uppercase;
+  border-radius: 5px;
+}
+
+.services-cta .btn {
+  background-color: #e8cfa2;
+  color: #333;
+  white-space: nowrap;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+}
+
+.services-cta .btn:hover {
+  background-color: #ddc28d;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* Gallery section */
+.gallery-section {
+  padding: 60px 0;
+  background-color: #ffffff;
+  text-align: center;
+  border-top: 1px solid rgba(0,0,0,0.05);
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+.gallery-title {
+  color: #3c4a3a;
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.gallery-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.gallery-item {
+  flex: 1;
+  max-width: 400px;
+}
+
+.gallery-img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 0;
+  margin-bottom: 15px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.gallery-label {
+  font-size: 22px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #3c4a3a;
+}
+
+/* Testimonials section */
+.testimonials-section {
+  padding: 60px 0;
+  background-color: #f5efe3;
+}
+
+.testimonial {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.testimonial-avatar {
+  flex-shrink: 0;
+}
+
+.avatar-img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: #e0e0e0;
+  background-image: url('https://randomuser.me/api/portraits/men/32.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+.testimonial-text {
+  font-size: 16px;
+  margin-bottom: 10px;
+  font-style: italic;
+  line-height: 1.4;
+}
+
+.testimonial-author {
+  font-weight: bold;
+  font-size: 16px;
+  color: #3c4a3a;
+}
+
+/* Contact section */
+.contact-section {
+  padding: 50px 0;
+  background-color: #ffffff;
+  text-align: center;
+  border-top: 1px solid rgba(0,0,0,0.05);
+}
+
+.contact-title {
+  margin-bottom: 15px;
+}
+
+.contact-description {
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .navbar-container {
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .nav-links {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .gallery-container {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .testimonial {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .services-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .services-text {
+    max-width: 100%;
+    margin-bottom: 20px;
+  }
+  
+  .services-cta {
+    align-self: flex-start;
+  }
+}
+
+/* Ajustement des marges dans les conteneurs */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
