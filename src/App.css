@@ -249,9 +249,26 @@ body {
 }
 
 .service-icon {
-  font-size: 28px;
-  display: block;
-  margin-bottom: 5px;
+  font-size: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+  background-color: rgba(255, 255, 255, 0.15);
+  border-radius: 50%;
+  margin-bottom: 8px;
+  transition: all 0.3s ease;
+}
+
+.service-card:hover .service-icon {
+  transform: scale(1.1);
+  background-color: rgba(255, 255, 255, 0.25);
+}
+
+.service-icon i {
+  font-size: 22px;
+  color: white;
 }
 
 .service-category {
@@ -271,8 +288,7 @@ body {
 }
 
 .service-toggle {
-  font-size: 24px;
-  font-weight: bold;
+  font-size: 16px;
   width: 24px;
   height: 24px;
   display: flex;
@@ -339,12 +355,14 @@ body {
 }
 
 .click-hint::before {
-  content: '👆';
+  content: '\f0a6';
+  font-family: 'Font Awesome 6 Free';
+  font-weight: 900;
   margin-right: 5px;
 }
 
 .service-card.active .click-hint::before {
-  content: '👆';
+  content: '\f0a6';
   transform: rotate(180deg);
   display: inline-block;
 }
@@ -369,6 +387,21 @@ body {
   margin-top: 0;
   margin-bottom: 10px;
   color: #3c4a3a;
+  display: flex;
+  align-items: center;
+}
+
+.info-card h3 i {
+  margin-right: 10px;
+  color: #3c4a3a;
+}
+
+.info-card.eco h3 i {
+  color: #6b8e4e;
+}
+
+.info-card.area h3 i {
+  color: #c4a87a;
 }
 
 .info-card p {

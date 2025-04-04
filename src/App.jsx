@@ -13,7 +13,7 @@ function App() {
       title: "Rénovation de bâtiments",
       category: "BÂTIMENT",
       description: "Redonnez vie à vos façades et structures avec notre technique d'aérogommage non abrasive.",
-      icon: "🏡",
+      icon: <i className="fas fa-building"></i>,
       items: [
         "Décapage de façades et murs extérieurs",
         "Nettoyage de pierres de taille et briques apparentes",
@@ -25,7 +25,7 @@ function App() {
       title: "Restauration de bois",
       category: "BOIS",
       description: "Préservez le charme et l'authenticité de vos boiseries sans produits chimiques agressifs.",
-      icon: "🪵",
+      icon: <i className="fas fa-tree"></i>,
       items: [
         "Décapage de meubles et boiseries anciennes",
         "Rénovation de poutres et charpentes apparentes",
@@ -37,7 +37,7 @@ function App() {
       title: "Traitement des métaux",
       category: "MÉTAL",
       description: "Éliminez rouille et corrosion tout en préservant l'intégrité des surfaces métalliques.",
-      icon: "⚙️",
+      icon: <i className="fas fa-cog"></i>,
       items: [
         "Décapage de structures métalliques",
         "Préparation de surfaces avant peinture",
@@ -49,7 +49,7 @@ function App() {
       title: "Véhicules & Objets de collection",
       category: "COLLECTION",
       description: "Une approche délicate et précise pour vos biens les plus précieux et pièces anciennes.",
-      icon: "🚗",
+      icon: <i className="fas fa-car-side"></i>,
       items: [
         "Décapage de carrosseries et châssis",
         "Restauration de jantes et pièces mécaniques",
@@ -110,7 +110,12 @@ function App() {
                     <span className="service-category">{service.category}</span>
                   </div>
                   <h3 className="service-title">{service.title}</h3>
-                  <span className="service-toggle">{activeService === index ? '−' : '+'}</span>
+                  <span className="service-toggle">
+                    {activeService === index ? 
+                      <i className="fas fa-minus"></i> : 
+                      <i className="fas fa-plus"></i>
+                    }
+                  </span>
                 </div>
                 
                 <div className="service-description">
@@ -135,11 +140,11 @@ function App() {
           
           <div className="services-info">
             <div className="info-card eco">
-              <h3>Démarche Écologique</h3>
+              <h3><i className="fas fa-leaf"></i> Démarche Écologique</h3>
               <p>L'aérogommage utilise uniquement des matériaux naturels et biodégradables. Notre processus minimise la consommation d'eau et ne génère aucun rejet toxique, respectant ainsi l'environnement préservé de l'Oise.</p>
             </div>
             <div className="info-card area">
-              <h3>Zone d'Intervention</h3>
+              <h3><i className="fas fa-map-marker-alt"></i> Zone d'Intervention</h3>
               <p>Nous intervenons dans tout le département de l'Oise (60) et ses environs : Beauvais, Compiègne, Creil, Senlis, Chantilly, Clermont, Noyon et dans les départements limitrophes.</p>
             </div>
           </div>
