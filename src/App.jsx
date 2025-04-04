@@ -2,6 +2,59 @@ import { useState } from 'react'
 import './App.css'
 
 function App() {
+  const [activeService, setActiveService] = useState(null);
+  
+  const toggleService = (index) => {
+    setActiveService(activeService === index ? null : index);
+  };
+
+  const services = [
+    {
+      title: "Rénovation de bâtiments",
+      description: "Redonnez vie à vos façades et structures avec notre technique d'aérogommage non abrasive.",
+      icon: "🏡",
+      items: [
+        "Décapage de façades et murs extérieurs",
+        "Nettoyage de pierres de taille et briques apparentes",
+        "Ravalement de murs en pierre calcaire typiques de l'Oise",
+        "Retrait de graffitis et peintures"
+      ]
+    },
+    {
+      title: "Restauration de bois",
+      description: "Préservez le charme et l'authenticité de vos boiseries sans produits chimiques agressifs.",
+      icon: "🪵",
+      items: [
+        "Décapage de meubles et boiseries anciennes",
+        "Rénovation de poutres et charpentes apparentes",
+        "Traitement des chalets et bardages en bois",
+        "Restauration de portes et volets en bois"
+      ]
+    },
+    {
+      title: "Traitement des métaux",
+      description: "Éliminez rouille et corrosion tout en préservant l'intégrité des surfaces métalliques.",
+      icon: "⚙️",
+      items: [
+        "Décapage de structures métalliques",
+        "Préparation de surfaces avant peinture",
+        "Restauration de mobilier de jardin",
+        "Nettoyage d'équipements agricoles (secteur rural de l'Oise)"
+      ]
+    },
+    {
+      title: "Véhicules & Objets de collection",
+      description: "Une approche délicate et précise pour vos biens les plus précieux et pièces anciennes.",
+      icon: "🚗",
+      items: [
+        "Décapage de carrosseries et châssis",
+        "Restauration de jantes et pièces mécaniques",
+        "Traitement d'objets anciens et de collection",
+        "Préservation du patrimoine local (objets traditionnels de l'Oise)"
+      ]
+    }
+  ];
+
   return (
     <div className="app">
       {/* Navigation */}
@@ -31,12 +84,56 @@ function App() {
             <div className="services-text">
               <h2 className="section-title">NOS SERVICES</h2>
               <p className="services-description">
-                Service professionnel d'aérogommage pour<br />
-                bois, métal, pierre et plus encore.
+                Services professionnels d'aérogommage dans l'Oise et ses environs.<br />
+                Une solution écologique et efficace pour tous vos projets de rénovation.
               </p>
             </div>
             <div className="services-cta">
-              <a href="#gallery" className="btn btn-primary btn-large">VOIR NOS RÉALISATIONS</a>
+              <a href="#devis" className="btn btn-primary btn-large">DEMANDER UN DEVIS</a>
+            </div>
+          </div>
+          
+          <div className="services-grid">
+            {services.map((service, index) => (
+              <div 
+                key={index} 
+                className={`service-card ${activeService === index ? 'active' : ''}`}
+                onClick={() => toggleService(index)}
+              >
+                <div className="service-card-header">
+                  <span className="service-icon">{service.icon}</span>
+                  <h3 className="service-title">{service.title}</h3>
+                  <span className="service-toggle">{activeService === index ? '−' : '+'}</span>
+                </div>
+                
+                <div className="service-description">
+                  <p>{service.description}</p>
+                </div>
+                
+                <div className="service-details">
+                  <ul className="service-list">
+                    {service.items.map((item, itemIndex) => (
+                      <li key={itemIndex} className="service-item">{item}</li>
+                    ))}
+                  </ul>
+                </div>
+                <div className="service-card-footer">
+                  <span className="click-hint">
+                    {activeService === index ? 'Cliquez pour fermer' : 'Cliquez pour voir les détails'}
+                  </span>
+                </div>
+              </div>
+            ))}
+          </div>
+          
+          <div className="services-info">
+            <div className="info-card eco">
+              <h3>Démarche Écologique</h3>
+              <p>L'aérogommage utilise uniquement des matériaux naturels et biodégradables. Notre processus minimise la consommation d'eau et ne génère aucun rejet toxique, respectant ainsi l'environnement préservé de l'Oise.</p>
+            </div>
+            <div className="info-card area">
+              <h3>Zone d'Intervention</h3>
+              <p>Nous intervenons dans tout le département de l'Oise (60) et ses environs : Beauvais, Compiègne, Creil, Senlis, Chantilly, Clermont, Noyon et dans les départements limitrophes.</p>
             </div>
           </div>
         </div>
@@ -69,7 +166,7 @@ function App() {
             </div>
             <div className="testimonial-content">
               <p className="testimonial-text">
-                Excellent travail, respect des délais et approoché écologique appréciée.
+                Excellent travail, respect des délais et approche écologique appréciée.
               </p>
               <p className="testimonial-author">Jean Dupont</p>
             </div>
