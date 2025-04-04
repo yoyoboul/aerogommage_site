@@ -88,9 +88,16 @@ const CostEstimator = () => {
     <div className="cost-estimator-container">
       <div className="cost-estimator-wrapper">
         <h3 className="estimator-title">Estimez le coût de vos travaux</h3>
+        <div className="estimator-disclaimer-banner">
+          <i className="fas fa-info-circle"></i>
+          <p>
+            Cet outil fournit une <strong>estimation indicative</strong>. Pour un tarif précis adapté à votre projet spécifique, 
+            <a href="#devis"> demandez un devis personnalisé gratuit</a>.
+          </p>
+        </div>
         <p className="estimator-description">
-          Utilisez cet outil pour obtenir une estimation approximative du coût de vos travaux d'aérogommage.
-          Cette estimation est fournie à titre indicatif et ne constitue pas un devis définitif.
+          Utilisez cet outil interactif pour obtenir une idée approximative du coût de vos travaux d'aérogommage.
+          Les tarifs réels peuvent varier selon les spécificités techniques de votre projet.
         </p>
         
         <form className="estimator-form" onSubmit={handleSubmit}>
@@ -206,7 +213,7 @@ const CostEstimator = () => {
                 <span className="price-range">
                   {estimate.min} € - {estimate.max} €
                 </span>
-                <span className="price-note">Prix estimé TTC</span>
+                <span className="price-note">Prix estimé TTC*</span>
               </div>
               
               <div className="estimate-details">
@@ -227,18 +234,23 @@ const CostEstimator = () => {
               </div>
               
               <div className="estimate-disclaimer">
-                Cette estimation est fournie à titre indicatif uniquement. 
-                Pour un devis précis adapté à votre projet, veuillez nous contacter.
+                <p><strong>*Avis important :</strong> Cette estimation est générée automatiquement sur la base d'informations limitées et ne constitue pas un engagement contractuel.</p>
+                <p>Pour un devis précis tenant compte des spécificités exactes de votre projet (état des surfaces, accessibilité, contraintes techniques particulières, etc.), nous vous recommandons de faire une demande de devis détaillé.</p>
               </div>
               
               <div className="estimate-cta">
                 <a href="#devis" className="btn-secondary">
-                  Demander un devis précis
+                  <i className="fas fa-file-invoice"></i> Obtenir un devis précis gratuit
                 </a>
               </div>
             </div>
           </div>
         )}
+        
+        <div className="estimator-footnote">
+          <i className="fas fa-exclamation-triangle"></i>
+          <p>Les tarifs définitifs ne peuvent être établis qu'après étude précise de votre projet par nos experts. Certains facteurs comme l'état initial de la surface, la présence de contaminants spécifiques ou l'accessibilité du chantier peuvent influencer significativement le prix final.</p>
+        </div>
       </div>
     </div>
   );
