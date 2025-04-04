@@ -3,9 +3,105 @@ import './App.css'
 
 function App() {
   const [activeService, setActiveService] = useState(null);
+  const [formData, setFormData] = useState({
+    nom: '',
+    email: '',
+    telephone: '',
+    type_service: '',
+    message: '',
+    consentement: false
+  });
+  const [formErrors, setFormErrors] = useState({});
+  const [formSuccess, setFormSuccess] = useState(false);
   
   const toggleService = (index) => {
     setActiveService(activeService === index ? null : index);
+  };
+
+  const handleInputChange = (e) => {
+    const { name, value, type, checked } = e.target;
+    setFormData({
+      ...formData,
+      [name]: type === 'checkbox' ? checked : value
+    });
+    
+    // Clear error for this field when user types
+    if (formErrors[name]) {
+      setFormErrors({
+        ...formErrors,
+        [name]: null
+      });
+    }
+  };
+  
+  const selectService = (serviceType) => {
+    setFormData({
+      ...formData,
+      type_service: serviceType
+    });
+    
+    // Clear error for service field
+    if (formErrors.type_service) {
+      setFormErrors({
+        ...formErrors,
+        type_service: null
+      });
+    }
+    
+    // Scroll to form
+    document.getElementById('devis-form').scrollIntoView({ behavior: 'smooth' });
+  };
+  
+  const validateForm = () => {
+    const errors = {};
+    
+    if (!formData.nom.trim()) errors.nom = "Votre nom est requis";
+    
+    if (!formData.email.trim()) {
+      errors.email = "Votre email est requis";
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+      errors.email = "Format d'email invalide";
+    }
+    
+    if (formData.telephone && !/^(?:(?:\+|00)33|0)\s*[1-9](?:[\s.-]*\d{2}){4}$/.test(formData.telephone)) {
+      errors.telephone = "Format de téléphone invalide";
+    }
+    
+    if (!formData.type_service) errors.type_service = "Veuillez sélectionner un type de service";
+    
+    if (!formData.message.trim()) errors.message = "Veuillez décrire votre projet";
+    
+    if (!formData.consentement) errors.consentement = "Vous devez accepter les conditions";
+    
+    return errors;
+  };
+  
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    
+    const errors = validateForm();
+    
+    if (Object.keys(errors).length > 0) {
+      setFormErrors(errors);
+      return;
+    }
+    
+    // Simuler l'envoi du formulaire
+    setTimeout(() => {
+      setFormSuccess(true);
+      // Reset form after 5 seconds
+      setTimeout(() => {
+        setFormSuccess(false);
+        setFormData({
+          nom: '',
+          email: '',
+          telephone: '',
+          type_service: '',
+          message: '',
+          consentement: false
+        });
+      }, 5000);
+    }, 1000);
   };
 
   const services = [
@@ -186,11 +282,180 @@ function App() {
         </div>
       </section>
 
-      {/* Contact Section */}
+      {/* Contact Section - Updated with interactive form */}
       <section id="devis" className="section contact-section">
         <div className="container">
           <h2 className="section-title contact-title">DEMANDER UN DEVIS</h2>
-          <p className="contact-description">Contactez-nous aujourd'hui pour un devis gratuit.</p>
+          <p className="contact-description">
+            Complétez le formulaire ci-dessous pour obtenir un devis personnalisé pour vos travaux d'aérogommage.
+          </p>
+          
+          <div className="contact-services">
+            <h3 className="contact-subtitle">Sélectionnez votre projet</h3>
+            <div className="service-selector">
+              {services.map((service, index) => (
+                <div 
+                  key={index}
+                  className={`service-option ${formData.type_service === service.title ? 'selected' : ''}`}
+                  onClick={() => selectService(service.title)}
+                >
+                  <div className="service-option-icon">
+                    {service.icon}
+                  </div>
+                  <div className="service-option-content">
+                    <h4>{service.title}</h4>
+                    <p>{service.category}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+            {formErrors.type_service && (
+              <div className="form-error">{formErrors.type_service}</div>
+            )}
+          </div>
+          
+          <div id="devis-form" className="contact-form-container">
+            {formSuccess ? (
+              <div className="form-success">
+                <i className="fas fa-check-circle"></i>
+                <h3>Demande envoyée avec succès !</h3>
+                <p>Nous vous contacterons dans les plus brefs délais pour discuter de votre projet.</p>
+              </div>
+            ) : (
+              <form className="contact-form" onSubmit={handleSubmit}>
+                <div className="form-row">
+                  <div className="form-group">
+                    <label htmlFor="nom">Nom complet <span className="required">*</span></label>
+                    <input
+                      type="text"
+                      id="nom"
+                      name="nom"
+                      value={formData.nom}
+                      onChange={handleInputChange}
+                      className={formErrors.nom ? 'error' : ''}
+                      placeholder="Votre nom et prénom"
+                    />
+                    {formErrors.nom && <div className="form-error">{formErrors.nom}</div>}
+                  </div>
+                  
+                  <div className="form-group">
+                    <label htmlFor="email">Email <span className="required">*</span></label>
+                    <input
+                      type="email"
+                      id="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleInputChange}
+                      className={formErrors.email ? 'error' : ''}
+                      placeholder="exemple@domaine.com"
+                    />
+                    {formErrors.email && <div className="form-error">{formErrors.email}</div>}
+                  </div>
+                </div>
+                
+                <div className="form-row">
+                  <div className="form-group">
+                    <label htmlFor="telephone">Téléphone</label>
+                    <input
+                      type="tel"
+                      id="telephone"
+                      name="telephone"
+                      value={formData.telephone}
+                      onChange={handleInputChange}
+                      className={formErrors.telephone ? 'error' : ''}
+                      placeholder="06 XX XX XX XX"
+                    />
+                    {formErrors.telephone && <div className="form-error">{formErrors.telephone}</div>}
+                  </div>
+                  
+                  <div className="form-group">
+                    <label htmlFor="type_service">Type de service <span className="required">*</span></label>
+                    <select
+                      id="type_service"
+                      name="type_service"
+                      value={formData.type_service}
+                      onChange={handleInputChange}
+                      className={formErrors.type_service ? 'error' : ''}
+                    >
+                      <option value="">Sélectionnez un service</option>
+                      {services.map((service, index) => (
+                        <option key={index} value={service.title}>{service.title}</option>
+                      ))}
+                    </select>
+                    {formErrors.type_service && <div className="form-error">{formErrors.type_service}</div>}
+                  </div>
+                </div>
+                
+                <div className="form-group">
+                  <label htmlFor="message">Description du projet <span className="required">*</span></label>
+                  <textarea
+                    id="message"
+                    name="message"
+                    value={formData.message}
+                    onChange={handleInputChange}
+                    className={formErrors.message ? 'error' : ''}
+                    placeholder="Décrivez votre projet d'aérogommage (type de surface, dimensions, état actuel, etc.)"
+                    rows="5"
+                  ></textarea>
+                  {formErrors.message && <div className="form-error">{formErrors.message}</div>}
+                </div>
+                
+                <div className="form-group checkbox-group">
+                  <input
+                    type="checkbox"
+                    id="consentement"
+                    name="consentement"
+                    checked={formData.consentement}
+                    onChange={handleInputChange}
+                    className={formErrors.consentement ? 'error' : ''}
+                  />
+                  <label htmlFor="consentement">
+                    J'accepte que mes données soient utilisées pour me recontacter <span className="required">*</span>
+                  </label>
+                  {formErrors.consentement && <div className="form-error">{formErrors.consentement}</div>}
+                </div>
+                
+                <div className="form-actions">
+                  <button type="submit" className="btn btn-primary btn-large">
+                    <i className="fas fa-paper-plane"></i> Envoyer ma demande
+                  </button>
+                </div>
+              </form>
+            )}
+          </div>
+          
+          <div className="contact-info">
+            <div className="contact-card">
+              <div className="contact-icon">
+                <i className="fas fa-phone"></i>
+              </div>
+              <div className="contact-text">
+                <h4>Par téléphone</h4>
+                <p>06 XX XX XX XX</p>
+                <p>Du lundi au vendredi, 8h-19h</p>
+              </div>
+            </div>
+            
+            <div className="contact-card">
+              <div className="contact-icon">
+                <i className="fas fa-envelope"></i>
+              </div>
+              <div className="contact-text">
+                <h4>Par email</h4>
+                <p>contact@aerogommage-oise.fr</p>
+              </div>
+            </div>
+            
+            <div className="contact-card">
+              <div className="contact-icon">
+                <i className="fas fa-map-marker-alt"></i>
+              </div>
+              <div className="contact-text">
+                <h4>Zone d'intervention</h4>
+                <p>Département de l'Oise (60) et limitrophes</p>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
     </div>
