@@ -920,3 +920,20 @@ body {
   margin: 0 auto;
   padding: 0 20px;
 }
+
+/* Estimator section */
+.estimator-section {
+  background-color: #ffffff;
+  padding: 80px 0;
+  text-align: center;
+  border-top: 1px solid rgba(0,0,0,0.05);
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+.section-description {
+  max-width: 800px;
+  margin: 0 auto 40px;
+  font-size: 18px;
+  color: #555;
+  line-height: 1.6;
+}

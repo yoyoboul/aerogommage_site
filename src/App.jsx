@@ -2,6 +2,7 @@ import { useState } from 'react'
 import './App.css'
 import ImageComparer from './components/ImageComparer'
 import TestimonialCarousel from './components/TestimonialCarousel'
+import CostEstimator from './components/CostEstimator'
 
 function App() {
   const [activeService, setActiveService] = useState(null);
@@ -192,6 +193,7 @@ function App() {
         <div className="container navbar-container">
           <div className="nav-links">
             <a href="#services" className="nav-link">Services</a>
+            <a href="#estimator" className="nav-link">Estimation de coût</a>
             <a href="#gallery" className="nav-link">Galerie Avant & Après</a>
             <a href="#testimonials" className="nav-link">Témoignages</a>
             <a href="#contact" className="nav-link">Contact</a>
@@ -274,6 +276,19 @@ function App() {
               <p>Nous intervenons dans tout le département de l'Oise (60) et ses environs : Beauvais, Compiègne, Creil, Senlis, Chantilly, Clermont, Noyon et dans les départements limitrophes.</p>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Estimator Section - Nouvelle section */}
+      <section id="estimator" className="section estimator-section">
+        <div className="container">
+          <h2 className="section-title">ESTIMATION GRATUITE</h2>
+          <p className="section-description">
+            Utilisez notre outil d'estimation instantanée pour obtenir une idée du coût de vos travaux d'aérogommage. 
+            Ajustez les paramètres selon votre projet pour un résultat personnalisé.
+          </p>
+          
+          <CostEstimator />
         </div>
       </section>
 
