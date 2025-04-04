@@ -465,6 +465,7 @@ body {
   display: flex;
   flex-direction: column;
   height: 100%;
+  align-self: start;
 }
 
 .info-card h3 {
