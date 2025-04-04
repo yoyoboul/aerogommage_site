@@ -458,6 +458,8 @@ body {
   padding: 25px;
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
   border-top: 4px solid;
+  display: flex;
+  flex-direction: column;
 }
 
 .info-card h3 {
@@ -469,11 +471,13 @@ body {
   align-items: center;
   padding-bottom: 12px;
   border-bottom: 1px solid #f0f0f0;
+  width: 100%;
 }
 
 .info-card h3 i {
   margin-right: 10px;
   color: #3c4a3a;
+  display: inline-block;
 }
 
 .info-card.eco h3 i {
@@ -489,6 +493,7 @@ body {
   line-height: 1.5;
   color: #555;
   margin: 0;
+  width: 100%;
 }
 
 .info-card.eco {
