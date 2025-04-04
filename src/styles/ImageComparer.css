@@ -1,0 +1,165 @@
+.image-comparer {
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+  height: auto;
+  margin: 0 auto;
+  overflow: hidden;
+  user-select: none;
+  touch-action: none;
+  border-radius: 8px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+}
+
+.image-container {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: 66.67%; /* Ratio 3:2 pour les images */
+  overflow: hidden;
+}
+
+.image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.before-image-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  transition: clip-path 0.05s ease;
+}
+
+.slider-handle {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: ew-resize;
+}
+
+.slider-button {
+  width: 40px;
+  height: 40px;
+  background-color: #e8cfa2;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  transform: scale(1);
+  transition: transform 0.2s ease;
+}
+
+.slider-handle:hover .slider-button {
+  transform: scale(1.1);
+}
+
+.slider-arrows {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #3c4a3a;
+  font-size: 14px;
+}
+
+.arrow {
+  margin: 0 2px;
+}
+
+.slider-line {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background-color: #e8cfa2;
+  z-index: 2;
+}
+
+.image-labels {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  padding: 15px;
+  z-index: 3;
+}
+
+.before-label,
+.after-label {
+  background-color: rgba(60, 74, 58, 0.85);
+  color: white;
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.before-label {
+  transform: translateX(0);
+}
+
+.after-label {
+  transform: translateX(0);
+}
+
+/* Animation d'apparition au chargement */
+@keyframes slider-appear {
+  0% {
+    opacity: 0;
+    transform: scale(0.7);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.slider-button {
+  animation: slider-appear 0.5s ease forwards;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .image-comparer {
+    max-width: 100%;
+  }
+  
+  .slider-button {
+    width: 36px;
+    height: 36px;
+  }
+  
+  .before-label,
+  .after-label {
+    font-size: 12px;
+    padding: 4px 10px;
+  }
+}
+
+/* Amélioration de l'accessibilité pour le focus */
+.image-comparer:focus-within .slider-button {
+  box-shadow: 0 0 0 3px rgba(232, 207, 162, 0.5);
+}
+
+/* Effet de transition fluide pour le slider */
+.image-comparer:not(:active) .before-image-container {
+  transition: clip-path 0.2s ease-out;
+} 

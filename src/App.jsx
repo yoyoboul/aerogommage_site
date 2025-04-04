@@ -1,5 +1,7 @@
 import { useState } from 'react'
 import './App.css'
+import ImageComparer from './components/ImageComparer'
+import TestimonialCarousel from './components/TestimonialCarousel'
 
 function App() {
   const [activeService, setActiveService] = useState(null);
@@ -155,6 +157,34 @@ function App() {
     }
   ];
 
+  // Données des témoignages
+  const testimonials = [
+    {
+      text: "Nous avons fait appel à cette entreprise pour rénover la façade en pierre de notre maison ancienne. Le résultat est impressionnant, toutes les traces de pollution ont disparu et la pierre a retrouvé sa beauté d'origine. Excellent travail, respect des délais et approche écologique appréciée.",
+      author: "Jean Dupont",
+      role: "Propriétaire à Beauvais",
+      avatar: "https://randomuser.me/api/portraits/men/32.jpg"
+    },
+    {
+      text: "Une intervention rapide et professionnelle pour le décapage de nos volets en bois. Fini les produits chimiques nocifs, l'aérogommage est vraiment efficace et préserve l'aspect naturel du bois. Je recommande vivement !",
+      author: "Marie Legrand",
+      role: "Cliente particulière",
+      avatar: "https://randomuser.me/api/portraits/women/44.jpg"
+    },
+    {
+      text: "Travail de grande qualité pour la restauration de notre portail en fer forgé. Le résultat est impeccable et le prix très compétitif. L'équipe est sérieuse, ponctuelle et à l'écoute. Merci pour cette rénovation réussie !",
+      author: "Philippe Martin",
+      role: "Architecte d'intérieur",
+      avatar: "https://randomuser.me/api/portraits/men/54.jpg"
+    },
+    {
+      text: "J'ai confié la rénovation de ma voiture de collection à ces professionnels de l'aérogommage. Le châssis a été parfaitement décapé sans aucune déformation. Un savoir-faire remarquable pour les objets de valeur.",
+      author: "Sophie Dubois",
+      role: "Collectionneuse automobile",
+      avatar: "https://randomuser.me/api/portraits/women/66.jpg"
+    }
+  ];
+
   return (
     <div className="app">
       {/* Navigation */}
@@ -251,33 +281,37 @@ function App() {
       <section id="gallery" className="section gallery-section">
         <div className="container">
           <h2 className="section-title gallery-title">GALERIE AVANT & APRÈS</h2>
-          <div className="gallery-container">
-            <div className="gallery-item">
-              <img src="/Avant.png" alt="Avant aérogommage" className="gallery-img" />
-              <p className="gallery-label">AVANT</p>
-            </div>
-            <div className="gallery-item">
-              <img src="/Apres.png" alt="Après aérogommage" className="gallery-img" />
-              <p className="gallery-label">APRÈS</p>
-            </div>
+          <p className="gallery-description">
+            Faites glisser le curseur pour voir les résultats impressionnants de nos travaux d'aérogommage.
+          </p>
+          
+          <div className="gallery-interactive">
+            <ImageComparer 
+              beforeImage="/Avant.png" 
+              afterImage="/Apres.png" 
+              beforeAlt="Surface avant aérogommage" 
+              afterAlt="Surface après aérogommage" 
+            />
+          </div>
+          
+          <div className="gallery-cta">
+            <a href="#devis" className="btn btn-secondary">Demander un devis pour votre projet</a>
           </div>
         </div>
       </section>
 
-      {/* Testimonials Section */}
+      {/* Testimonials Section - Mise à jour avec le carrousel */}
       <section id="testimonials" className="section testimonials-section">
         <div className="container">
-          <h2 className="section-title">TÉMOIGNAGES</h2>
-          <div className="testimonial">
-            <div className="testimonial-avatar">
-              <div className="avatar-img"></div>
-            </div>
-            <div className="testimonial-content">
-              <p className="testimonial-text">
-                Excellent travail, respect des délais et approche écologique appréciée.
-              </p>
-              <p className="testimonial-author">Jean Dupont</p>
-            </div>
+          <h2 className="section-title">TÉMOIGNAGES CLIENTS</h2>
+          <p className="testimonials-description">
+            Découvrez ce que nos clients disent de nos services d'aérogommage professionnel dans l'Oise et ses environs.
+          </p>
+          
+          <TestimonialCarousel testimonials={testimonials} />
+          
+          <div className="testimonials-cta">
+            <a href="#devis" className="btn btn-secondary">Demander votre devis personnalisé</a>
           </div>
         </div>
       </section>

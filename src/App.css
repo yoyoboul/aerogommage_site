@@ -496,56 +496,94 @@ body {
   border-color: #e8cfa2;
 }
 
-/* Gallery section */
+/* Gallery section - Mise à jour avec comparateur interactif */
 .gallery-section {
-  padding: 60px 0;
   background-color: #ffffff;
+  padding: 70px 0;
   text-align: center;
-  border-top: 1px solid rgba(0,0,0,0.05);
-  border-bottom: 1px solid rgba(0,0,0,0.05);
 }
 
 .gallery-title {
-  color: #3c4a3a;
-  margin-bottom: 40px;
-  text-align: center;
+  margin-bottom: 25px;
 }
 
-.gallery-container {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  max-width: 1000px;
-  margin: 0 auto;
+.gallery-description {
+  max-width: 700px;
+  margin: 0 auto 40px;
+  font-size: 18px;
+  color: #555;
+  line-height: 1.6;
 }
 
-.gallery-item {
-  flex: 1;
-  max-width: 400px;
+.gallery-interactive {
+  margin: 30px auto;
+  max-width: 800px;
+  position: relative;
 }
 
-.gallery-img {
-  width: 100%;
-  height: 300px;
-  object-fit: cover;
-  border-radius: 0;
-  margin-bottom: 15px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+.gallery-cta {
+  margin-top: 40px;
 }
 
-.gallery-label {
-  font-size: 22px;
-  font-weight: bold;
+.btn-secondary {
+  background-color: #3c4a3a;
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 6px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
   text-transform: uppercase;
-  color: #3c4a3a;
+  font-size: 14px;
+  display: inline-block;
+  text-decoration: none;
 }
 
-/* Testimonials section */
+.btn-secondary:hover {
+  background-color: #4d5d4b;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Testimonials section - Mise à jour avec le carrousel */
 .testimonials-section {
-  padding: 60px 0;
+  padding: 80px 0;
   background-color: #f5efe3;
+  text-align: center;
+  position: relative;
 }
 
+.testimonials-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%233c4a3a' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  opacity: 0.5;
+  z-index: 0;
+}
+
+.testimonials-section .container {
+  position: relative;
+  z-index: 1;
+}
+
+.testimonials-description {
+  max-width: 700px;
+  margin: 0 auto 40px;
+  font-size: 18px;
+  color: #555;
+  line-height: 1.6;
+}
+
+.testimonials-cta {
+  margin-top: 60px;
+}
+
+/* Pour assurer la transition avec les anciens styles */
 .testimonial {
   display: flex;
   align-items: center;
@@ -554,31 +592,13 @@ body {
   margin: 0 auto;
 }
 
-.testimonial-avatar {
-  flex-shrink: 0;
-}
-
 .avatar-img {
   width: 100px;
   height: 100px;
   border-radius: 50%;
   background-color: #e0e0e0;
-  background-image: url('https://randomuser.me/api/portraits/men/32.jpg');
   background-size: cover;
   background-position: center;
-}
-
-.testimonial-text {
-  font-size: 16px;
-  margin-bottom: 10px;
-  font-style: italic;
-  line-height: 1.4;
-}
-
-.testimonial-author {
-  font-weight: bold;
-  font-size: 16px;
-  color: #3c4a3a;
 }
 
 /* Contact section */
