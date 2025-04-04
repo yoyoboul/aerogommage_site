@@ -266,9 +266,17 @@ function App() {
           </div>
           
           <div className="services-info">
-            <div className="info-card eco">
-              <h3><i className="fas fa-leaf"></i> Démarche Écologique</h3>
-              <p>L'aérogommage utilise uniquement des matériaux naturels et biodégradables. Notre processus minimise la consommation d'eau et ne génère aucun rejet toxique, respectant ainsi l'environnement préservé de l'Oise.</p>
+            <div className="info-card building">
+              <h3><i className="fas fa-building"></i> Bâtiment</h3>
+              <p>Spécialistes de la rénovation de façades, murs et surfaces extérieures, nous redonnons vie aux bâtiments anciens et récents. Notre technique d'aérogommage respecte les matériaux originaux tout en éliminant efficacement les traces du temps.</p>
+            </div>
+            <div className="info-card wood">
+              <h3><i className="fas fa-tree"></i> Bois</h3>
+              <p>Notre savoir-faire permet de restaurer tous types de boiseries et surfaces en bois sans les endommager. L'aérogommage est idéal pour préserver le charme et l'authenticité des éléments en bois de votre patrimoine.</p>
+            </div>
+            <div className="info-card collection">
+              <h3><i className="fas fa-car-side"></i> Collection</h3>
+              <p>Nous traitons vos objets de valeur et véhicules de collection avec une précision incomparable. Notre approche délicate préserve l'intégrité de vos biens précieux tout en retrouvant leur aspect d'origine.</p>
             </div>
             <div className="info-card area">
               <h3><i className="fas fa-map-marker-alt"></i> Zone d'Intervention</h3>
