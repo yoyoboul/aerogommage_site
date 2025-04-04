@@ -48,11 +48,11 @@ function App() {
           <h2 className="section-title gallery-title">GALERIE AVANT & APRÈS</h2>
           <div className="gallery-container">
             <div className="gallery-item">
-              <img src="https://via.placeholder.com/800x600/D9D9D9/333333?text=Avant+Aerogommage" alt="Avant aérogommage" className="gallery-img" />
+              <img src="/Avant.png" alt="Avant aérogommage" className="gallery-img" />
               <p className="gallery-label">AVANT</p>
             </div>
             <div className="gallery-item">
-              <img src="https://via.placeholder.com/800x600/E5E5E5/333333?text=Apres+Aerogommage" alt="Après aérogommage" className="gallery-img" />
+              <img src="/Apres.png" alt="Après aérogommage" className="gallery-img" />
               <p className="gallery-label">APRÈS</p>
             </div>
           </div>
