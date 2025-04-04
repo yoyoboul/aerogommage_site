@@ -937,3 +937,102 @@ body {
   color: #555;
   line-height: 1.6;
 }
+
+/* Estimator CTA Banner */
+.estimator-cta-section {
+  background-color: #f5efe3;
+  padding: 50px 0;
+  text-align: center;
+}
+
+.estimator-cta-banner {
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+  padding: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+}
+
+.estimator-cta-banner::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 10px;
+  height: 100%;
+  background: linear-gradient(to bottom, #e8cfa2, #d8bf92);
+}
+
+.estimator-cta-content {
+  text-align: left;
+  padding-left: 20px;
+  max-width: 60%;
+}
+
+.estimator-cta-content h2 {
+  font-size: 28px;
+  color: #3c4a3a;
+  margin-bottom: 15px;
+}
+
+.estimator-cta-content p {
+  color: #555;
+  font-size: 16px;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.estimator-cta-action {
+  margin-left: 30px;
+}
+
+.btn-large {
+  padding: 14px 28px;
+  font-size: 16px;
+  display: inline-flex;
+  align-items: center;
+}
+
+.btn-large i {
+  margin-right: 10px;
+  font-size: 18px;
+}
+
+@media (max-width: 768px) {
+  .estimator-cta-banner {
+    flex-direction: column;
+    padding: 30px 25px;
+  }
+  
+  .estimator-cta-banner::before {
+    width: 100%;
+    height: 6px;
+    background: linear-gradient(to right, #e8cfa2, #d8bf92);
+  }
+  
+  .estimator-cta-content {
+    text-align: center;
+    padding-left: 0;
+    max-width: 100%;
+    margin-bottom: 25px;
+    padding-top: 10px;
+  }
+  
+  .estimator-cta-content h2 {
+    font-size: 24px;
+  }
+  
+  .estimator-cta-action {
+    margin-left: 0;
+    width: 100%;
+  }
+  
+  .btn-large {
+    width: 100%;
+    justify-content: center;
+  }
+}

@@ -2,7 +2,6 @@ import { useState } from 'react'
 import './App.css'
 import ImageComparer from './components/ImageComparer'
 import TestimonialCarousel from './components/TestimonialCarousel'
-import CostEstimator from './components/CostEstimator'
 
 function App() {
   const [activeService, setActiveService] = useState(null);
@@ -193,7 +192,7 @@ function App() {
         <div className="container navbar-container">
           <div className="nav-links">
             <a href="#services" className="nav-link">Services</a>
-            <a href="#estimator" className="nav-link">Estimation de coût</a>
+            <a href="/estimateur" className="nav-link">Estimation de coût</a>
             <a href="#gallery" className="nav-link">Galerie Avant & Après</a>
             <a href="#testimonials" className="nav-link">Témoignages</a>
             <a href="#contact" className="nav-link">Contact</a>
@@ -279,16 +278,20 @@ function App() {
         </div>
       </section>
 
-      {/* Estimator Section - Nouvelle section */}
-      <section id="estimator" className="section estimator-section">
+      {/* Estimation CTA Banner - Section remplaçant l'estimateur intégré */}
+      <section className="section estimator-cta-section">
         <div className="container">
-          <h2 className="section-title">ESTIMATION GRATUITE</h2>
-          <p className="section-description">
-            Utilisez notre outil d'estimation instantanée pour obtenir une idée du coût de vos travaux d'aérogommage. 
-            Ajustez les paramètres selon votre projet pour un résultat personnalisé.
-          </p>
-          
-          <CostEstimator />
+          <div className="estimator-cta-banner">
+            <div className="estimator-cta-content">
+              <h2>Estimez le coût de vos travaux</h2>
+              <p>Utilisez notre outil d'estimation interactif pour obtenir une idée du coût de vos travaux d'aérogommage. Simple, rapide et sans engagement.</p>
+            </div>
+            <div className="estimator-cta-action">
+              <a href="/estimateur" className="btn btn-primary btn-large">
+                <i className="fas fa-calculator"></i> Accéder à l'estimateur
+              </a>
+            </div>
+          </div>
         </div>
       </section>
 

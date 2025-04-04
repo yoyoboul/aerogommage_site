@@ -1,5 +1,8 @@
 {
   "git": {
     "lfs": true
-  }
+  },
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/index.html" }
+  ]
 } 
