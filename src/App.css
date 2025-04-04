@@ -97,7 +97,7 @@ body {
   width: 100%;
   background-image: url('/Hero.png');
   background-size: cover;
-  background-position: center;
+  background-position: center 40%;
   position: relative;
   margin-top: 51px;
   padding-top: 0;
