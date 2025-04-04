@@ -237,12 +237,30 @@ body {
   background-color: #3c4a3a;
   color: white;
   position: relative;
+  flex-wrap: wrap;
+}
+
+.service-icon-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 15px;
+  min-width: 55px;
 }
 
 .service-icon {
   font-size: 28px;
-  margin-right: 15px;
-  display: inline-block;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.service-category {
+  font-size: 10px;
+  font-weight: 700;
+  background-color: rgba(255, 255, 255, 0.25);
+  padding: 3px 6px;
+  border-radius: 3px;
+  letter-spacing: 0.5px;
 }
 
 .service-title {
@@ -498,6 +516,15 @@ body {
   
   .services-grid {
     grid-template-columns: 1fr;
+  }
+  
+  .service-card-header {
+    flex-wrap: nowrap;
+  }
+  
+  .service-icon-wrapper {
+    margin-right: 10px;
+    min-width: 45px;
   }
   
   .gallery-container {

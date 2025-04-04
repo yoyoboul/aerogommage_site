@@ -11,6 +11,7 @@ function App() {
   const services = [
     {
       title: "Rénovation de bâtiments",
+      category: "BÂTIMENT",
       description: "Redonnez vie à vos façades et structures avec notre technique d'aérogommage non abrasive.",
       icon: "🏡",
       items: [
@@ -22,6 +23,7 @@ function App() {
     },
     {
       title: "Restauration de bois",
+      category: "BOIS",
       description: "Préservez le charme et l'authenticité de vos boiseries sans produits chimiques agressifs.",
       icon: "🪵",
       items: [
@@ -33,6 +35,7 @@ function App() {
     },
     {
       title: "Traitement des métaux",
+      category: "MÉTAL",
       description: "Éliminez rouille et corrosion tout en préservant l'intégrité des surfaces métalliques.",
       icon: "⚙️",
       items: [
@@ -44,6 +47,7 @@ function App() {
     },
     {
       title: "Véhicules & Objets de collection",
+      category: "COLLECTION",
       description: "Une approche délicate et précise pour vos biens les plus précieux et pièces anciennes.",
       icon: "🚗",
       items: [
@@ -101,7 +105,10 @@ function App() {
                 onClick={() => toggleService(index)}
               >
                 <div className="service-card-header">
-                  <span className="service-icon">{service.icon}</span>
+                  <div className="service-icon-wrapper">
+                    <span className="service-icon">{service.icon}</span>
+                    <span className="service-category">{service.category}</span>
+                  </div>
                   <h3 className="service-title">{service.title}</h3>
                   <span className="service-toggle">{activeService === index ? '−' : '+'}</span>
                 </div>
