@@ -467,6 +467,8 @@ body {
   color: #3c4a3a;
   display: flex;
   align-items: center;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #f0f0f0;
 }
 
 .info-card h3 i {
