@@ -267,22 +267,12 @@ function App() {
           
           <div className="services-info">
             <div className="info-card eco">
-              <div className="info-card-header">
-                <i className="fas fa-leaf"></i>
-                <h3>Démarche Écologique</h3>
-              </div>
-              <div className="info-card-content">
-                <p>L'aérogommage utilise uniquement des matériaux naturels et biodégradables. Notre processus minimise la consommation d'eau et ne génère aucun rejet toxique, respectant ainsi l'environnement préservé de l'Oise.</p>
-              </div>
+              <h3><i className="fas fa-leaf"></i> Démarche Écologique</h3>
+              <p>L'aérogommage utilise uniquement des matériaux naturels et biodégradables. Notre processus minimise la consommation d'eau et ne génère aucun rejet toxique, respectant ainsi l'environnement préservé de l'Oise.</p>
             </div>
             <div className="info-card area">
-              <div className="info-card-header">
-                <i className="fas fa-map-marker-alt"></i>
-                <h3>Zone d'Intervention</h3>
-              </div>
-              <div className="info-card-content">
-                <p>Nous intervenons dans tout le département de l'Oise (60) et ses environs : Beauvais, Compiègne, Creil, Senlis, Chantilly, Clermont, Noyon et dans les départements limitrophes.</p>
-              </div>
+              <h3><i className="fas fa-map-marker-alt"></i> Zone d'Intervention</h3>
+              <p>Nous intervenons dans tout le département de l'Oise (60) et ses environs : Beauvais, Compiègne, Creil, Senlis, Chantilly, Clermont, Noyon et dans les départements limitrophes.</p>
             </div>
           </div>
         </div>

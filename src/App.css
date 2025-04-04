@@ -454,59 +454,47 @@ body {
 
 .info-card {
   background-color: #ffffff;
-  border-radius: 10px;
-  padding: 0;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-  overflow: hidden;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  display: flex;
-  flex-direction: column;
-}
-
-.info-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
-}
-
-.info-card-header {
-  background-color: #3c4a3a;
-  padding: 20px;
-  text-align: center;
-  color: white;
-  position: relative;
-}
-
-.info-card-header i {
-  font-size: 36px;
-  margin-bottom: 15px;
-  display: block;
-  opacity: 0.9;
-}
-
-.info-card-header h3 {
-  font-size: 20px;
-  margin: 0;
-  font-weight: 600;
-  letter-spacing: 0.5px;
-}
-
-.info-card-content {
+  border-radius: 8px;
   padding: 25px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+  border-top: 4px solid;
 }
 
-.info-card-content p {
+.info-card h3 {
+  font-size: 20px;
+  margin-top: 0;
+  margin-bottom: 10px;
+  color: #3c4a3a;
+  display: flex;
+  align-items: center;
+}
+
+.info-card h3 i {
+  margin-right: 10px;
+  color: #3c4a3a;
+}
+
+.info-card.eco h3 i {
+  color: #6b8e4e;
+}
+
+.info-card.area h3 i {
+  color: #c4a87a;
+}
+
+.info-card p {
   font-size: 16px;
-  line-height: 1.6;
+  line-height: 1.5;
   color: #555;
   margin: 0;
 }
 
-.info-card.eco .info-card-header {
-  background-color: #6b8e4e;
+.info-card.eco {
+  border-color: #6b8e4e;
 }
 
-.info-card.area .info-card-header {
-  background-color: #d8b37a;
+.info-card.area {
+  border-color: #e8cfa2;
 }
 
 @media (max-width: 768px) {
